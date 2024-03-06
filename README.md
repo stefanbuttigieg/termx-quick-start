@@ -9,7 +9,11 @@
 ```
 docker-compose pull && docker-compose up -d
 ```
-- First startup may take up to 1 minute. Run command `docker logs termx-server` to montor the installation process. Wait until text `Startup completed in NNNNms. Server Running: http://XXXXX:4200` appears. 
+- First startup may take up to 1 minute. Execute script below to montor the installation process.
+```
+docker logs termx-server
+```
+- Wait until text `Startup completed in NNNNms. Server Running: http://XXXXX:4200` appears. 
 - Open [`http://localhost:4200`](http://localhost:4200) in your web browser.
 
 # Demo
