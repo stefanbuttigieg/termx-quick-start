@@ -79,7 +79,7 @@ services:
 
   termx-minio-init:
     container_name: termx-minio-init
-    restart: no
+    restart: "no"
     image: quay.io/minio/mc
     entrypoint: /bin/sh
     command: -c "mc config host add minio http://termx-minio:9000 minio miniominio && mc admin user add minio bob bobobobo && mc admin policy attach minio readwrite --user bob"
