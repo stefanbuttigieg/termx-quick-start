@@ -1,19 +1,19 @@
 > **WARNING!**
-> This guide is intended for local quickstart and not suited for production environments.
+> This guide is intended for local quickstart and is not suited for production environments.
 
-# Step-by-ste instructions
+# Step-by-step instructions
 
 - Clone the repository.
 - Ensure that you have the [Docker](https://docs.docker.com/get-docker/) environment installed locally.
-- Go to shell, navigate to the cloned directory, and execute script below:
+- Go to shell, navigate to the cloned directory, and execute the script below:
 ```
 docker-compose pull && docker-compose up -d
 ```
-- First startup may take up to 1 minute. Execute script below to montor the installation process.
+- The first startup may take up to 1 minute. Execute the script below to monitor the installation process.
 ```
 docker logs termx-server
 ```
-- Wait until text `Startup completed in NNNNms. Server Running: http://XXXXX:4200` appears. 
+- Wait until the text `Startup completed in NNNNms. Server Running: http://XXXXX:4200` appears. 
 - Open [`http://localhost:4200`](http://localhost:4200) in your web browser.
 
 # Demo
