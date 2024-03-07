@@ -20,23 +20,9 @@ services:
     container_name: termx-server
     depends_on:
       - termx-postgres
-    environment:
-      - DB_URL=jdbc:postgresql://termx-postgres:5432/termx
-      - DB_APP_PASSWORD=test
-      - DB_ADMIN_PASSWORD=test
-      - DB_POOL_SIZE=10
-      - JAVA_OPTS=-Xmx1800m -Dauth.dev.allowed=true -Dio.netty.leakDetection.level=advanced
-      - MICRONAUT_SERVER_CORS_ENABLED=true
-      - TERMX_WEB_URL=http://localhost:4200
-      - CHEF_URL=http://fsh-chef:3000
-      - BOB_MINIO_URL=http://termx-minio:9000
-      - BOB_MINIO_ACCESS_KEY=bob
-      - BOB_MINIO_SECRET_KEY=bobobobo
-      - SNOWSTORM_URL=https://snowstorm-public.kodality.dev/
-      - SNOWSTORM_BRANCH=MAIN/SNOMEDCT-EE
-      - GITHUB_APP_NAME=termx-local-publisher
-      - GITHUB_CLIENT_ID=Iv1.31a32068d51a12f7
-      - GITHUB_CLIENT_SECRET=49338395f791cf59b8ed34fb2aa65d07cebdd134
+    env_file:
+      - server.env
+#      - keycloak/server-keycloak.env
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://termx-server:8200/health" ]
       interval: 1s
@@ -52,16 +38,10 @@ services:
     container_name: termx-web
     depends_on:
       - termx-server
-    environment:
-      - TERMX_API=http://localhost:8200
-      - CHEF_URL=http://localhost:8500
-      - FML_EDITOR=http://localhost:8502
-      - PLANT_UML_URL=http://localhost:8501
-      - OAUTH_ISSUER=dummy
-      - OAUTH_CLIENT_ID=dummy
-      - UI_LANGUAGES=["en","et","fr"]
-      - CONTENT_LANGUAGES=["en","et","ru","ar"]
-      - EXTRA_LANGUAGES={"ar":{"en":"Arabic","et":"Araabia","fr":"Arabic"},"ru":{"en":"Russian","et":"Vene","fr":"Russe"}}
+    env_file:
+      - web.env 
+      - web-loginless.env
+#      - keycloak/web-keycloak.env
     ports:
       - 4200:80
 

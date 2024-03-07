@@ -17,8 +17,10 @@ docker logs termx-server
 - Open [`http://localhost:4200`](http://localhost:4200) in your web browser.
 
 # Demo
-
 You can use the [TermX development environment](https://termx.kodality.dev/) instead.
+
+# KeyCloak
+Follow KeyCloak installation and configuration [instructions](keycloak/README.md) if you need authentication in the your environment.
 
 # Advanced setup and Troubleshooting
 
