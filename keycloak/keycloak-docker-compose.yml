@@ -1,0 +1,12 @@
+
+  keycloak:
+    restart: unless-stopped
+    container_name: keycloak
+    ports:
+      - 8080:8080
+    env_file:
+      - keycloak/keycloak.env
+    image: quay.io/keycloak/keycloak:latest
+    command: start-dev
+
+
