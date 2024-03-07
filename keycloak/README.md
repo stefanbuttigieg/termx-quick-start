@@ -5,18 +5,18 @@ TermX.
 
 - We recommend following the KeyCloak [installation and configuration guide](https://www.keycloak.org/server/containers).
 - The instructions below describe the quickest way to set up KeyCloak, which may not be suitable for production.
-- Go to the shell, navigate to the TermX directory (or any other directory), and execute the script below:
+- Navigate to the TermX directory, open `docker-compose.yml` and add the content of [keycloak-docker-compose.yml](keycloak-docker-compose.yml) file manually or using command below:
 
 ```
-docker run --name keycloak -p 8080:8080 \
-        -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=change_me \
-        -e JAVA_OPTS_KC_HEAP="-XX:MaxHeapFreeRatio=30 -XX:MaxRAMPercentage=65" \
-        -e KC_HEALTH_ENABLED=true \
-        -e KC_HOSTNAME=localhost \
-        -e KC_METRICS_ENABLED=true \
-        quay.io/keycloak/keycloak:latest \
-        start-dev
+cat keycloak/keycloak-docker-compose.yml >> docker-compose.yml
 ```
+
+-  Rebuild Docker containers:
+
+```
+docker-compose up -d
+```
+
 
 # Configure TermX realm
 
@@ -69,4 +69,4 @@ docker logs termx-server
 ```
 
 - Read TermX [tutorial](https://termx.kodality.dev/wiki/termx-tutorial/authentication)
-- Some Linux computers do not accept `localhost`. Open `http://localhost:8080/realms/termx/protocol/openid-connect/certs` to validate it. If url not resolvable, then replace `localhost` with the IP address of the colac machine, such as `127.0.0.1` or `172.17.0.1` in `server-keycloak.env`.
+- Some computers do not accept container name or `localhost`. Open `http://localhost:8080/realms/termx/protocol/openid-connect/certs` to validate it. If url not resolvable, then replace `localhost` with the IP address of the local machine, such as `127.0.0.1` or `172.17.0.1`, in `server-keycloak.env`.

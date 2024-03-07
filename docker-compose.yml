@@ -87,4 +87,3 @@ services:
     container_name: termx-fml-editor
     ports:
       - 8502:80
-
