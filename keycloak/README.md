@@ -21,10 +21,9 @@ docker run --name keycloak -p 8080:8080 \
 # Configure TermX realm
 
 - Open [`http://localhost:8080`](http://localhost:8080) in your web browser and log in with the username and password specified in the `KEYCLOAK_ADMIN` and `KEYCLOAK_ADMIN_PASSWORD` parameters.
-- Create new `TermX` realm
-- Import realm using [termx-realm.json](termx-realm.json) file. Please follow the KeyCloak [manual](https://www.keycloak.org/getting-started/getting-started-docker).
+- Import realm using [termx-realm.json](termx-realm.json) file. Please follow the KeyCloak [manual](https://www.keycloak.org/getting-started/getting-started-docker). As result 2 clients will be created: `termx-client` for web app and `termx-service` for server (API calls).
 - Add a new user in the TermX realm (for example, “test”), set the credentials, and join group `termx-admin`.
-- (optional) Update the client secret for `termx-client`. Go to Clients, select `termx-client`, navigate to credentials, generate new `Client Secret` and save it in `server-keycloak.env` file as value of the parameter `KEYCLOAK_CLIENT_SECRET`. 
+- (optional) Update the client secret for `termx-service`. Go to Clients, select `termx-service`, navigate to credentials, generate new `Client Secret` and save it in `server-keycloak.env` file as a value of the parameter `KEYCLOAK_CLIENT_SECRET`. 
 
 # Reconfigure TermX installation
 
@@ -70,3 +69,4 @@ docker logs termx-server
 ```
 
 - Read TermX [tutorial](https://termx.kodality.dev/wiki/termx-tutorial/authentication)
+- Some Linux computers do not accept `localhost`. Open `http://localhost:8080/realms/termx/protocol/openid-connect/certs` to validate it. If url not resolvable, then replace `localhost` with `127.0.0.1` in `server-keycloak.env`.
