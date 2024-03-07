@@ -69,4 +69,4 @@ docker logs termx-server
 ```
 
 - Read TermX [tutorial](https://termx.kodality.dev/wiki/termx-tutorial/authentication)
-- Some Linux computers do not accept `localhost`. Open `http://localhost:8080/realms/termx/protocol/openid-connect/certs` to validate it. If url not resolvable, then replace `localhost` with `127.0.0.1` in `server-keycloak.env`.
+- Some Linux computers do not accept `localhost`. Open `http://localhost:8080/realms/termx/protocol/openid-connect/certs` to validate it. If url not resolvable, then replace `localhost` with the IP address of the colac machine, such as `127.0.0.1` or `172.17.0.1` in `server-keycloak.env`.
