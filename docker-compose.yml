@@ -85,5 +85,7 @@ services:
     restart: unless-stopped
     image: docker.kodality.com/termx-fml-editor:latest
     container_name: termx-fml-editor
+    env_file:
+      - fml-editor.env
     ports:
       - 8502:80
