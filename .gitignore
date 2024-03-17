@@ -1,3 +1,6 @@
+#SNOMED
+snomed/data
+
 # compiled output
 /dist
 /tmp

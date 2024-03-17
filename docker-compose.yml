@@ -11,6 +11,8 @@ services:
       - POSTGRES_DB=postgres
     volumes:
       - ./pginit.sql:/docker-entrypoint-initdb.d/init.sql
+#    networks:
+#      - termx
     ports:
       - 5432:5432
 
@@ -28,6 +30,8 @@ services:
       interval: 1s
       timeout: 5s
       retries: 60
+#    networks:
+#      - termx
     ports:
       - 8200:8200
     mem_reservation: 2g
@@ -42,6 +46,8 @@ services:
       - web.env 
       - web-loginless.env
 #      - keycloak/web-keycloak.env
+#    networks:
+#      - termx
     ports:
       - 4200:80
 
@@ -53,6 +59,8 @@ services:
     environment:
       - MINIO_ROOT_USER=minio
       - MINIO_ROOT_PASSWORD=miniominio
+#    networks:
+#      - termx
     ports:
       - 9100:9000
       - 9101:9001
@@ -63,6 +71,8 @@ services:
     image: quay.io/minio/mc
     entrypoint: /bin/sh
     command: -c "mc config host add minio http://termx-minio:9000 minio miniominio && mc admin user add minio bob bobobobo && mc admin policy attach minio readwrite --user bob"
+#    networks:
+#      - termx
     depends_on:
       - termx-minio
 
@@ -70,6 +80,8 @@ services:
     restart: unless-stopped
     image: docker.kodality.com/fsh-chef:latest
     container_name: fsh-chef
+#    networks:
+#      - termx
     ports:
       - 8500:3000
     mem_reservation: 1g
@@ -78,6 +90,8 @@ services:
     restart: unless-stopped
     image: plantuml/plantuml-server:jetty
     container_name: plantuml-server
+#    networks:
+#      - termx
     ports:
       - 8501:8080
 
@@ -87,5 +101,11 @@ services:
     container_name: termx-fml-editor
     env_file:
       - fml-editor.env
+#    networks:
+#      - termx
     ports:
       - 8502:80
+
+#networks:
+#  termx:
+#    name: termxnet
