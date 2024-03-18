@@ -12,7 +12,7 @@ mkdir data
 
 ```
 Mac: chown -R $(whoami) ./data
-Ubuntu: chown -R ubuntu:ubuntu ./data
+Ubuntu: chown -R ubuntu:docker ./data
 ```
 
 - and install Docker images
@@ -31,7 +31,7 @@ docker-compose pull & docker-compose up -d
 - Run [install-int-edition.sh](install-int-edition.sh) from shell. Specify the zip archive with RF2 files as argument of the script. For example:
 
 ```
-./install-int-edition.sh MAIN /Users/igor/Downloads/SnomedCT_InternationalRF2_PRODUCTION_20240301T120000Z.zip
+./install-int-edition.sh /Users/igor/Downloads/SnomedCT_InternationalRF2_PRODUCTION_20240301T120000Z.zip
 ```
 
 > Depending on your computer’s processing power, it may take between 30 to 60 minutes to import the SNOMED International Edition.

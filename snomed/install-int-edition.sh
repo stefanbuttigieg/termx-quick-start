@@ -49,4 +49,4 @@ RESPONSE=$(curl -v -i -k -X POST \
 
 echo "$RESPONSE"
 
-echo "Imported finnished!"
+echo "Import in progress. Execute 'docker logs -f snowstorm' for details"
