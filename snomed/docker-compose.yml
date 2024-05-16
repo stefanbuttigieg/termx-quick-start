@@ -29,7 +29,7 @@ services:
     depends_on:
       elasticsearch:
         condition: service_healthy
-    entrypoint: java -Xms2g -Xmx4g --add-opens java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED -cp @/app/jib-classpath-file org.snomed.snowstorm.SnowstormApplication --elasticsearch.urls=http://elasticsearch:9200
+    entrypoint: java -Xms2g -Xmx4g --add-opens java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED -cp @/app/jib-classpath-file org.snomed.snowstorm.SnowstormApplication --elasticsearch.urls=http://elasticsearch:9200 --codesystem.all.latest-version.allow-future=true
 #    networks:
 #      - elastic
 #      - termx
