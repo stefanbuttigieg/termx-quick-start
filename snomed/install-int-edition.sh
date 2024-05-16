@@ -24,6 +24,8 @@ RESPONSE=$( curl -v -i -k -X POST \
         "branchPath": "MAIN",
         "createCodeSystemVersion": true,
         "internalRelease": false,
+        "name": "International Edition",
+        "countryCode": "",
         "filterModuleIds": []
       }' \
   'http://localhost:8080/imports'
