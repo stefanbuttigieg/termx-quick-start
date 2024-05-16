@@ -78,3 +78,4 @@ rm -rf ./data
 ```
 - Run `docker images -a`. Ensure that all images have proper versions. Remove wrong images.
 - Check [Snowstorm pre-requisites](https://github.com/IHTSDO/snowstorm/blob/master/docs/using-docker.md#pre-requisites).
+- Follow [Snowstorm configuration guide](https://github.com/IHTSDO/snowstorm/blob/master/docs/configuration-guide.md) to override default paraameters.
