@@ -1,4 +1,4 @@
-The instructions here will help you set up the [Swagger UI](swagger-config.json) for TermX API visualization.
+The instructions here will help you set up the [Swagger UI](https://swagger.io) for TermX API visualization.
 
 # Preparation
 ### Swagger config
