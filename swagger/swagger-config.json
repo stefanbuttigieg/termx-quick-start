@@ -1,0 +1,16 @@
+{
+  "urls": [
+    {
+      "url": "https://termx.mysite.com/api/swagger/termx.yml",
+      "name": "termx"
+    },
+    {
+      "url": "https://termx.mysite.com/api/fhir-swagger",
+      "name": "termx-fhir"
+    }
+  ],
+  "plugins": [
+    "topbar"
+  ]
+}
+

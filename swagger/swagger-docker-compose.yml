@@ -1,0 +1,12 @@
+
+  termx-swagger:
+    restart: unless-stopped
+    image: swaggerapi/swagger-ui
+    container_name: termx-swagger
+    volumes:
+      - ./swagger-config.json:/usr/share/nginx/html/swagger-config.json
+    env_file:
+      - swagger.env
+    ports:
+      - 8000:8080
+
