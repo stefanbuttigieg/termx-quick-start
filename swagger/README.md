@@ -1,8 +1,8 @@
-The instructions here will help you set up the [Swagger UI](https://www.keycloak.org/) for TermX API visualization.
+The instructions here will help you set up the [Swagger UI](swagger-config.json) for TermX API visualization.
 
 # Preparation
 ### Swagger config
-- Navigate to the TermX directory, open/create `swagger-config.json` and change `termx.mysite.com` url-s to your TermX server path. The content of `swagger-config.json` file should look like in the example below:
+- Navigate to the TermX directory, open/create [`swagger-config.json`](swagger-config.json) and change `termx.mysite.com` url-s to your TermX server path. The content of `swagger-config.json` file should look like in the example below:
 
 ```
 {
@@ -24,7 +24,7 @@ The instructions here will help you set up the [Swagger UI](https://www.keycloak
 
 # Nginx configuration
 - Open TermX configuration file in the Nginx web server (for example `/etc/nginx/conf.d/termx.conf`)
-- Add location /swagger under main server as shown below
+- Add location [`/swagger`](swagger.http.conf) under main server as shown below
 
 ```
     location /swagger {
@@ -46,6 +46,11 @@ systemctl reload nginx
 
 ```
 cat swagger/swagger-docker-compose.yml >> docker-compose.yml
+```
+
+- Copy [`swagger.env`](swagger.env) to TermX directory and change `termx.mysite.com` url to your TermX Swagger path.
+```
+cp swagger/swagger.env .
 ```
 
 -  Rebuild Docker containers:
