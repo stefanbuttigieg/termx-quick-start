@@ -18,7 +18,7 @@ services:
 
   termx-server:
     restart: unless-stopped
-    image: docker.kodality.com/termx-server:latest
+    image: ghcr.io/termx-health/termx-server:latest
     container_name: termx-server
     depends_on:
       - termx-postgres
@@ -38,7 +38,7 @@ services:
 
   termx-web:
     restart: unless-stopped
-    image: docker.kodality.com/termx-web:latest
+    image: ghcr.io/termx-health/termx-web:latest
     container_name: termx-web
     depends_on:
       - termx-server
