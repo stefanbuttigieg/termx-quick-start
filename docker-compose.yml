@@ -78,7 +78,7 @@ services:
 
   fsh-chef:
     restart: unless-stopped
-    image: docker.kodality.com/fsh-chef:latest
+    image: ghcr.io/termx-health/termx-chef:latest
     container_name: fsh-chef
 #    networks:
 #      - termx
@@ -97,7 +97,7 @@ services:
 
   termx-fml-editor:
     restart: unless-stopped
-    image: docker.kodality.com/termx-fml-editor:latest
+    image: ghcr.io/termx-health/termx-fml:latest
     container_name: termx-fml-editor
     env_file:
       - fml-editor.env
