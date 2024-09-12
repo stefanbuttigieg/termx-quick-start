@@ -34,4 +34,5 @@ Read details about manual configuration in [Termx tutorial](https://termx.kodali
 
 - [Developer Quickstart](https://termx.kodality.dev/wiki/termx-tutorial/developer-quickstart);
 - [Installation Guide](https://termx.kodality.dev/wiki/termx-tutorial/installation-guide).
+- Uncomment "./pgdata:/var/lib/postgresql/data" and map PG database to the local directory (change "./pgdata" if needed) to prevent the data loss on PG container updates.
 
