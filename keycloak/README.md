@@ -26,7 +26,7 @@ docker-compose up -d
 - Add your site as web origin and redirect url. Go to Clients and select `termx-client`.
   - Find 'Valid redirect URIs' and add path of your site (for example `https://termx.mysite.com/*`). Remove unused urls and save configuration.
   - Find 'Web origins' and add path of your site (for example `https://termx.mysite.com`). Remove unused urls and save configuration.
-- (optional) Update the client secret for `termx-service`. Go to Clients, select `termx-service`, navigate to credentials, generate new `Client Secret` and save it in `server-keycloak.env` file as a value of the parameter `KEYCLOAK_CLIENT_SECRET`. 
+- (optional) Update the client secret for `termx-service`. Go to Clients, select `termx-service`, navigate to credentials, generate new `Client Secret` and save it in `server.env` or `server-keycloak.env` file as a value of the parameter `KEYCLOAK_CLIENT_SECRET`. 
 
 # Reconfigure TermX installation
 
