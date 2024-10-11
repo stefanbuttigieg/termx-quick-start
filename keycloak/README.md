@@ -63,6 +63,11 @@ docker-compose up -d
 To add other identity providers, such as Google, GitHub, and Microsoft authentication, follow
 KeyCloak [server administration guide](https://www.keycloak.org/docs/latest/server_admin).
 
+# Default permissions for automatically created user
+- Open TermX realm
+- Goto “Realm Settings” -> “User registration” tab
+- Assign “termx-client: editor” role (or any other suitable role). This role(s) will be added to user automatically after user registration (first login).
+
 # Troubleshooting
 
 - Validate the status of TermX server
