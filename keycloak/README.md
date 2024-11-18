@@ -68,6 +68,12 @@ KeyCloak [server administration guide](https://www.keycloak.org/docs/latest/serv
 - Goto “Realm Settings” -> “User registration” tab
 - Assign “termx-client: editor” role (or any other suitable role). This role(s) will be added to user automatically after user registration (first login).
 
+# Default timeout
+The default timeout of the token in Keycloak is 5 min. You may want to reconfigure this value.
+- Open TermX realm and goto “Realm Settings”
+- Open “Tokens” tab and change "Access Token Lifespan" to a longer period.
+- Open “Sessions” tab and change "SSO Session Idle" to at least twice as long as "Access Token Lifespan".
+
 # Troubleshooting
 
 - Validate the status of TermX server
