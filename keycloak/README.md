@@ -1,5 +1,4 @@
-The instructions here will help you set up the [KeyCloak OpenID server](https://www.keycloak.org/) as an SSO server for authenticating and authorizing users in
-TermX.
+The instructions here will help you set up the [KeyCloak OpenID server](https://www.keycloak.org/) as an SSO server for authenticating and authorizing users in TermX.
 
 # Install KeyCloak
 
@@ -7,16 +6,15 @@ TermX.
 - The instructions below describe the quickest way to set up KeyCloak, which may not be suitable for production.
 - Navigate to the TermX directory, open `docker-compose.yml` and add the content of [keycloak-docker-compose.yml](keycloak-docker-compose.yml) file manually or using command below:
 
-```
+```bash
 cat keycloak/keycloak-docker-compose.yml >> docker-compose.yml
 ```
 
--  Rebuild Docker containers:
+- Rebuild Docker containers:
 
-```
+```bash
 docker-compose up -d
 ```
-
 
 # Configure TermX realm
 
@@ -31,11 +29,11 @@ docker-compose up -d
 # Reconfigure TermX installation
 
 - Go to `docker-compose.yml` and enable KeyCloak authentication
-    - uncomment lines with `server-keycloak.env` and `web-keycloak.env`.
-    - comment out line with `web-loginless.env`.
-    - the result should look like
+  - uncomment lines with `server-keycloak.env` and `web-keycloak.env`.
+  - comment out line with `web-loginless.env`.
+  - the result should look like
 
-```
+```yml
   termx-server:
     ...
     env_file:
@@ -52,7 +50,7 @@ docker-compose up -d
 
 - Navigate to the TermX directory and rebuild Docker containers:
 
-```
+```bash
 docker-compose up -d
 ```
 
@@ -78,9 +76,9 @@ The default timeout of the token in Keycloak is 5 min. You may want to reconfigu
 
 - Validate the status of TermX server
 
-```
+```bash
 docker logs termx-server
 ```
 
-- Read TermX [tutorial](https://termx.kodality.dev/wiki/termx-tutorial/authentication)
+- Read TermX [tutorial](https://tutorial.termx.org/en/authentication)
 - Some computers do not accept container name or `localhost`. Open `http://localhost:8080/realms/termx/protocol/openid-connect/certs` to validate it. If url not resolvable, then replace `localhost` with the IP address of the local machine, such as `127.0.0.1` or `172.17.0.1`, in `server-keycloak.env`.

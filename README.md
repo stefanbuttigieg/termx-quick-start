@@ -7,13 +7,13 @@
 - Ensure that you have the [Docker](https://docs.docker.com/get-docker/) environment installed locally.
 - Go to shell, navigate to the cloned directory, and execute the script below:
 
-```
+```bash
 docker-compose pull && docker-compose up -d
 ```
 
 - The first startup may take up to 1 minute. Execute the script below to monitor the installation process.
 
-```
+```bash
 docker logs termx-server
 ```
 
@@ -26,13 +26,12 @@ Follow KeyCloak installation and configuration [instructions](keycloak/README.md
 
 # Demo
 
-You can use the [TermX development environment](https://termx.kodality.dev/) instead.
+You can use the [TermX development](https://dev.termx.org/) and [demo](https://demo.termx.org/) environments instead.
 
 # Advanced setup and Troubleshooting
 
-Read details about manual configuration in [Termx tutorial](https://termx.kodality.dev/wiki/termx-tutorial/about):
+Read details about manual configuration in [Termx tutorial](https://tutorial.termx.org/en/about):
 
-- [Developer Quickstart](https://termx.kodality.dev/wiki/termx-tutorial/developer-quickstart);
-- [Installation Guide](https://termx.kodality.dev/wiki/termx-tutorial/installation-guide).
+- [Developer Quickstart](https://tutorial.termx.org/en/developer-quickstart);
+- [Installation Guide](https://tutorial.termx.org/en/installation-guide).
 - Uncomment "./pgdata:/var/lib/postgresql/data" and map PG database to the local directory (change "./pgdata" if needed) to prevent the data loss on PG container updates.
-
