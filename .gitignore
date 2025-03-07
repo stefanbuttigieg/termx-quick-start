@@ -1,6 +1,9 @@
 #SNOMED
 snomed/data
 
+#db
+pgdata/
+
 # compiled output
 /dist
 /tmp
