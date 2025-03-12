@@ -1,6 +1,6 @@
 # Web server setup for TermX
 
-This folder contains the examples of Ngnix web server configuration. You can adopt scripts for your web server also.
+> **ℹ️ Info:** This folder contains the examples of Ngnix web server configuration. You can adopt scripts for your web server also.
 
 NB! The basic knowledge about `Ngnix` and `vi` editor are recommended.
 The provided scripts are tested on Ubuntu 24.04 LTS. There are may be differences in your operational system or version.
