@@ -92,7 +92,7 @@ By default, Keycloak uses an embedded H2 database for storage in its [initial se
 docker exec -u postgres -ti termx-postgres psql
 ```
 
-- Copy the content of the [pginitdb.sql](pginitdb.sql) with the replaced password to the terminal and press Enter.
+- Copy the content of the [pgdbinitdb.sql](pgdbinitdb.sql) with the replaced password to the terminal and press Enter.
 - Use `quit` to exit from psql.
 - Update the content of the [server-keycloak.env](server-keycloak.env). Uncomment the lines in the DB section and set your unique password.
 - Recompile the Keycloak container with `docker-compose up -d keycloak` and ensure that no errors are present in the log.
