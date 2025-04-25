@@ -26,6 +26,7 @@ services:
     env_file:
       - server.env
 #      - keycloak/server-keycloak.env
+      - server-auth.env
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://termx-server:8200/health" ]
       interval: 1s
@@ -44,9 +45,10 @@ services:
     depends_on:
       - termx-server
     env_file:
-      - web.env 
+      - web.env
       - web-loginless.env
 #      - keycloak/web-keycloak.env
+      - web-auth.env
 #    networks:
 #      - termx
     ports:

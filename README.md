@@ -20,9 +20,40 @@ docker logs termx-server
 - Wait until the text `Startup completed in NNNNms. Server Running: http://XXXXX:8200` appears.
 - Open [`http://localhost:4200`](http://localhost:4200) in your web browser.
 
-# KeyCloak
+# Authentication
 
-Follow KeyCloak installation and configuration [instructions](keycloak/README.md) if you need authentication in your environment.
+## Custom Authentication System
+
+TermX now includes a built-in authentication system that doesn't require Keycloak. This system supports:
+
+- Local username/password authentication
+- External identity providers (OIDC, OAuth2, SAML, LDAP)
+- JWT-based token authentication
+- Integration with the existing privileges system
+
+To use the custom authentication system:
+
+1. Make sure the `server-auth.env` and `web-auth.env` files are included in the docker-compose configuration.
+2. For security, generate a new JWT secret using the provided script:
+   ```bash
+   # On Linux/Mac
+   ./generate-jwt-secret.sh
+
+   # On Windows
+   .\generate-jwt-secret.ps1
+   ```
+3. Update the `JWT_SECRET` value in `server-auth.env` with the generated secret.
+4. Start the containers with `docker-compose up -d`.
+5. Access the admin dashboard at `http://localhost:4200/admin` using the default credentials:
+   - Username: `admin`
+   - Password: `admin123`
+6. Change the default admin password immediately.
+
+For more details, see [README-AUTH.md](README-AUTH.md).
+
+## KeyCloak (Legacy)
+
+If you prefer to use Keycloak for authentication, follow the Keycloak installation and configuration [instructions](keycloak/README.md).
 
 # Demo
 
